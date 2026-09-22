@@ -7,7 +7,7 @@ button{cursor:pointer;background:var(--paper);color:var(--ink);border:1.5px soli
 button:hover:not(:disabled){background:var(--washi-dark);border-color:var(--gold)}
 button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
 button:disabled{cursor:default;color:var(--ink-faint);background:var(--washi-dark);border-color:var(--washi-mid)}
-.exercise-toolbar{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 28px}
+.exercise-toolbar{max-width:1180px;margin:0 auto;display:flex;align-items:flex-end;justify-content:center;gap:10px;padding:18px 28px}
 .modes{display:flex;gap:4px}
 .modes button{border-color:transparent;background:transparent;font-size:18px}
 .modes button[aria-pressed=true]{background:var(--paper);border-color:var(--washi-mid);color:var(--ink);font-weight:600}
@@ -38,8 +38,13 @@ h1{font-family:var(--font-display);font-size:clamp(27px,3.3vw,42px);line-height:
 #correction-row{min-height:49px;padding-top:6px}
 #answer{font-size:32px;overflow-wrap:anywhere;margin:8px 0 24px;color:var(--blue)}
 #counter{font-size:20px;color:var(--muted);margin:16px 0}
-.filters{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 18px;font-size:16px;color:var(--muted);margin:24px 0}
-.filters label{display:flex;align-items:center;gap:8px}
+.mini-control{display:grid;gap:4px;color:var(--muted);font-size:12px;line-height:1;white-space:nowrap}
+.mini-control select{min-width:118px;height:42px;min-height:42px;padding:5px 27px 5px 9px;font-size:14px}
+.mini-control:nth-of-type(2) select{min-width:150px}
+.toolbar-actions{display:flex;gap:6px}
+.toolbar-icon{min-width:46px;width:46px;min-height:42px;height:42px;padding:4px;font-size:23px;line-height:1;background:var(--paper)}
+.toolbar-icon.table-icon{width:62px;font-family:var(--font-jp);font-size:16px}
+#mark[aria-pressed=true]{background:var(--gold-soft);color:var(--ink-soft)}
 select{max-width:100%;min-height:44px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);padding:7px 28px 7px 10px}
 .checkbox{min-height:44px}
 input[type=checkbox]{width:21px;height:21px;accent-color:var(--green)}
@@ -97,7 +102,7 @@ h1{margin:20px 0 16px}
 .navigation{margin-bottom:18px}
 .navigation button{min-width:74px;min-height:56px}
 #feedback{font-size:17px}
-.filters{gap:10px;font-size:15px;margin:16px 0}
+.toolbar-filters{gap:8px}
 #stats{font-size:15px}
 dialog{padding:16px}
 .kana-grid{gap:6px}
@@ -177,18 +182,18 @@ body.atelier-active { overflow:hidden; }
 #romaji[data-blurred="false"] { color:#000; }
 #translation { color:#00008b; }
 #written-answer { font-family:var(--font-jp);font-size:clamp(25px,3vw,36px);color:#f00;line-height:1.5;margin:0 0 22px;overflow-wrap:anywhere; }
-.exercise-toolbar { display:grid;grid-template-columns:1fr auto 1fr;align-items:center; }
-.exercise-toolbar .modes { justify-self:start; }
-#table-open { justify-self:end; }
+.exercise-toolbar { flex-wrap:nowrap; }
+@media(max-width:900px) {
+ .exercise-toolbar { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding-inline:18px;align-items:end; }
+ .mini-control select { width:100%;min-width:0; }
+ .mini-control:nth-of-type(2) select { min-width:0; }
+ .toolbar-actions { justify-content:center; }
+}
 @media(max-width:650px) {
- .exercise-toolbar { grid-template-columns:1fr auto 1fr;padding-inline:8px;gap:5px; }
- .exercise-toolbar .modes { gap:0; }
- .exercise-toolbar button { font-size:12px;padding:8px 5px; }
- .exercise-toolbar .romaji-switch { gap:5px;padding:6px 7px; }
- .romaji-switch-label { display:none; }
- .romaji-switch-track { width:42px;flex-basis:42px; }
- .romaji-switch[aria-checked="true"] .romaji-switch-thumb { transform:translateX(16px); }
- .exercise-toolbar .modes button { font-size:12px; }
+ .exercise-toolbar { display:grid;grid-template-columns:1fr 1fr;padding:12px 10px;gap:8px;align-items:end; }
+ .mini-control select { width:100%;min-width:0; }
+ .mini-control:nth-of-type(2) select { min-width:0; }
+ .toolbar-actions { grid-column:1 / -1;justify-content:center; }
 }
 
 #site-info-dialog { width:min(820px,94vw);line-height:1.7;text-align:left; }

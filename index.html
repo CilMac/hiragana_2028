@@ -8,12 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;1,400&family=Lato:wght@300;400;700&family=M+PLUS+Rounded+1c:wght@400;500&family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="theme.css">
 <script defer src="kana-strokes.js"></script>
-  <link rel="stylesheet" href="styles.css?v=session-score-1">
+  <link rel="stylesheet" href="styles.css?v=toolbar-2">
   <script defer src="phrases_hiragana.js?v=written-1"></script>
   <script defer src="mots_katakana.js"></script>
   <script defer src="kana_core.js?v=locked-1"></script>
   <script defer src="solution-format.js?v=2"></script>
-  <script defer src="kana_app.js?v=session-score-1"></script>
+  <script defer src="kana_app.js?v=toolbar-2"></script>
   <script defer src="navigation.js?v=resources-1"></script>
   <script defer src="font-settings.js"></script>
 </head>
@@ -33,20 +33,29 @@
     </div>
   </header>
   <div id="phrases-screen">
-  <div class="exercise-toolbar">
-    <div class="modes" role="group" aria-label="Écriture">
+  <div class="exercise-toolbar" aria-label="Réglages de l’exercice">
+    <label class="mini-control"><span>Écriture</span><select id="script-choice" aria-label="Écriture"><option value="hiragana">あ Hiragana</option><option value="katakana">ア Katakana</option></select></label>
+    <div class="modes" role="group" aria-label="Écriture" hidden>
       <button id="hiragana" aria-pressed="true">Hiragana</button>
       <button id="katakana" aria-pressed="false">Katakana</button>
     </div>
-    <div class="romaji-controls">
-    <button id="romaji-toggle" class="romaji-switch" role="switch" aria-controls="romaji" aria-checked="false" aria-label="Afficher le rōmaji">
-      <span class="romaji-switch-label">Rōmaji</span>
-      <span class="romaji-switch-track" aria-hidden="true"><span class="romaji-switch-thumb"></span></span>
-      <span id="romaji-toggle-state" class="romaji-switch-state">Off</span>
-    </button>
-    <label class="romaji-always"><input id="romaji-always" type="checkbox"> Toujours visible</label>
+    <label class="mini-control"><span>Thème</span><select id="theme"><option value="">Tous</option></select></label>
+    <label class="mini-control"><span>Niveau</span><select id="level"><option value="">Tous</option><option value="1">1 · Simple</option><option value="2">2 · Vie réelle</option><option value="3">3 · Plus long</option></select></label>
+    <label class="mini-control"><span>Révision</span><select id="review-choice"><option value="all">Toutes</option><option value="review">À revoir</option></select></label>
+    <label class="toolbar-review-filter" hidden><input type="checkbox" id="review-only"> Filtrer à revoir</label>
+    <label class="mini-control"><span>Rōmaji</span><select id="romaji-choice"><option value="hidden">Masqué</option><option value="current">Affiché</option><option value="always">Toujours</option></select></label>
+    <div class="romaji-controls" hidden>
+      <button id="romaji-toggle" class="romaji-switch" role="switch" aria-controls="romaji" aria-checked="false" aria-label="Afficher le rōmaji">
+        <span class="romaji-switch-label">Rōmaji</span>
+        <span class="romaji-switch-track" aria-hidden="true"><span class="romaji-switch-thumb"></span></span>
+        <span id="romaji-toggle-state" class="romaji-switch-state">Off</span>
+      </button>
+      <label class="romaji-always"><input id="romaji-always" type="checkbox"> Toujours</label>
     </div>
-    <button id="table-open" class="quiet">あ / ア · Table des kana</button>
+    <div class="toolbar-actions">
+      <button id="mark" class="toolbar-icon" aria-pressed="false" aria-label="Marquer cette phrase à revoir" title="Marquer cette phrase à revoir">☆</button>
+      <button id="table-open" class="toolbar-icon table-icon" aria-label="Ouvrir la table des kana" title="Table des kana">あ/ア</button>
+    </div>
   </div>
   <main>
     <section id="exercise" aria-label="Reconstruction">
@@ -75,12 +84,6 @@
     </section>
     <p id="empty" hidden>Aucun exercice pour ces filtres. Modifiez le thème, le niveau ou « À revoir ».</p>
     <p id="counter"></p>
-    <div class="filters" aria-label="Filtres">
-      <label>Thème <select id="theme"><option value="">Tous les thèmes</option></select></label>
-      <label>Niveau <select id="level"><option value="">Tous les niveaux</option><option value="1">1 · Simple</option><option value="2">2 · Vie réelle</option><option value="3">3 · Plus long</option></select></label>
-      <label class="checkbox"><input type="checkbox" id="review-only"> À revoir</label>
-      <button id="mark" class="quiet" aria-pressed="false">☆ À revoir</button>
-    </div>
     <p id="storage-warning" class="notice" role="status" hidden>La progression reste disponible pendant cette visite, mais ce navigateur ne permet pas de l’enregistrer.</p>
     <noscript>Activez JavaScript pour utiliser cet exercice.</noscript>
   </main>

@@ -34,11 +34,16 @@
   function message(text) { $('feedback').textContent = text; }
   let romajiVisible = false;
   let romajiAlways = false;
+  function syncRomajiChoice() {
+    const choice = $('romaji-choice');
+    if (choice) choice.value = romajiAlways ? 'always' : (romajiVisible ? 'current' : 'hidden');
+  }
   try { romajiAlways = storage.getItem('kana-v2-romaji-always') === 'true'; } catch (_) {}
   $('romaji-always').checked = romajiAlways;
   function rememberRomaji(always) {
     romajiAlways = always;
     $('romaji-always').checked = always;
+    syncRomajiChoice();
     try { storage.setItem('kana-v2-romaji-always', String(always)); }
     catch (_) { $('storage-warning').hidden = false; }
   }
@@ -50,6 +55,7 @@
     $('romaji-toggle').setAttribute('aria-checked', String(visible));
     $('romaji-toggle').setAttribute('aria-label', visible ? 'Masquer le rōmaji' : 'Afficher le rōmaji');
     $('romaji-toggle-state').textContent = visible ? 'On' : 'Off';
+    syncRomajiChoice();
   }
   $('romaji-toggle').onclick = () => {
     if (romajiVisible && romajiAlways) rememberRomaji(false);
@@ -58,6 +64,11 @@
   $('romaji-always').onchange = () => {
     rememberRomaji($('romaji-always').checked);
     if (romajiAlways) setRomajiVisible(true);
+  };
+  $('romaji-choice').onchange = () => {
+    const value = $('romaji-choice').value;
+    rememberRomaji(value === 'always');
+    setRomajiVisible(value !== 'hidden');
   };
   function hideSolution() {
     $('answer').hidden = true; $('answer').textContent = '';
@@ -95,11 +106,12 @@
     });
   }
   function changeMode(next) {
-    if (mode === next) return;
+    if (mode === next) { $('script-choice').value = mode; return; }
     mode = next;
+    $('script-choice').value = mode;
     $('hiragana').setAttribute('aria-pressed', String(mode === 'hiragana'));
     $('katakana').setAttribute('aria-pressed', String(mode === 'katakana'));
-    $('level').value = ''; $('review-only').checked = false;
+    $('level').value = ''; $('review-only').checked = false; $('review-choice').value = 'all';
     themes(); applyFilters();
   }
   function edit(action) {
@@ -185,7 +197,9 @@
     ]);
     const manual = current ? stat().manual : false;
     $('mark').setAttribute('aria-pressed', String(manual));
-    $('mark').textContent = manual ? '★ Marquée à revoir' : '☆ À revoir';
+    $('mark').textContent = manual ? '★' : '☆';
+    $('mark').setAttribute('aria-label', manual ? 'Retirer cette phrase des révisions' : 'Marquer cette phrase à revoir');
+    $('mark').title = manual ? 'Retirer des révisions' : 'Marquer à revoir';
   }
   $('stats-open').onclick = () => { renderStats(); $('stats-dialog').showModal(); };
   $('stats-close').onclick = () => $('stats-dialog').close();
@@ -249,6 +263,11 @@
   $('previous').onclick = () => navigate(-1); $('next').onclick = () => navigate(1);
   $('random').onclick = () => navigate('random');
   $('hiragana').onclick = () => changeMode('hiragana'); $('katakana').onclick = () => changeMode('katakana');
+  $('script-choice').onchange = () => changeMode($('script-choice').value);
+  $('review-choice').onchange = () => {
+    $('review-only').checked = $('review-choice').value === 'review';
+    applyFilters();
+  };
   for (const id of ['theme','level','review-only']) $(id).onchange = applyFilters;
   $('mark').onclick = () => { stat().manual = !stat().manual; save(); renderStats(); };
   function speak(text, report) {
