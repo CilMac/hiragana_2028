@@ -51,7 +51,8 @@
     romajiVisible = visible;
     $('romaji').textContent = visible && current ? current.romaji : '● ● ● ● ● ●';
     $('romaji').setAttribute('data-blurred', String(!visible));
-    $('romaji').setAttribute('aria-hidden', String(!visible));
+    $('romaji').setAttribute('aria-label', visible ? `Rōmaji : ${current?.romaji || ''}` : 'Afficher le rōmaji');
+    $('romaji').title = visible ? 'Rōmaji affiché' : 'Cliquer pour afficher le rōmaji';
     $('romaji-toggle').setAttribute('aria-checked', String(visible));
     $('romaji-toggle').setAttribute('aria-label', visible ? 'Masquer le rōmaji' : 'Afficher le rōmaji');
     $('romaji-toggle-state').textContent = visible ? 'On' : 'Off';
@@ -69,6 +70,9 @@
     const value = $('romaji-choice').value;
     rememberRomaji(value === 'always');
     setRomajiVisible(value !== 'hidden');
+  };
+  $('romaji').onclick = () => {
+    if (!romajiVisible) setRomajiVisible(true);
   };
   function hideSolution() {
     $('answer').hidden = true; $('answer').textContent = '';

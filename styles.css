@@ -143,6 +143,10 @@ dialog{padding:16px}
 .slot.incorrect { background:var(--red-soft); }
 #romaji { font-size:clamp(30px,3.6vw,46px);font-weight:400; }
 #romaji[data-blurred="true"] { font-family:var(--font-body);font-size:30px;letter-spacing:.09em; }
+#romaji { display:block;width:100%;min-height:64px;padding:0;border:0;border-radius:8px;background:transparent;font-family:var(--font-display);line-height:1.35;margin:17px 0 20px;overflow-wrap:anywhere;cursor:default; }
+#romaji:hover,#romaji:focus-visible { background:transparent;border-color:transparent; }
+#romaji[data-blurred="true"] { cursor:pointer; }
+#romaji[data-blurred="true"]:hover { background:#eef1f4; }
 #romaji-toggle { margin:0;justify-self:center; }
 .romaji-switch { display:flex;align-items:center;gap:9px;min-height:46px;padding:7px 12px;border-color:var(--washi-mid);border-radius:999px;background:var(--paper);color:var(--ink); }
 .romaji-switch-label { font-weight:600; }
