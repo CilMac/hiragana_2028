@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f3ec">
+  <title>Kana — phrases et atelier</title>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;1,400&family=Lato:wght@300;400;700&family=M+PLUS+Rounded+1c:wght@400;500&family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="theme.css">
+<script defer src="kana-strokes.js"></script>
+  <link rel="stylesheet" href="styles.css?v=session-score-1">
+  <script defer src="phrases_hiragana.js?v=written-1"></script>
+  <script defer src="mots_katakana.js"></script>
+  <script defer src="kana_core.js?v=locked-1"></script>
+  <script defer src="solution-format.js?v=2"></script>
+  <script defer src="kana_app.js?v=session-score-1"></script>
+  <script defer src="navigation.js?v=resources-1"></script>
+  <script defer src="font-settings.js"></script>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="site-topbar">
+      <div class="site-brand"><span lang="ja">かな</span><span class="site-subtitle">Hiragana & Katakana</span></div>
+      <nav class="screen-nav" aria-label="Choisir un écran">
+        <button id="screen-phrases" aria-pressed="true" aria-controls="phrases-screen"><span class="screen-number">01</span> Phrases</button>
+        <button id="screen-atelier" aria-pressed="false" aria-controls="atelier-screen"><span class="screen-number">02</span> Atelier kana</button>
+      </nav>
+      <div class="header-tools" role="group" aria-label="Aide, ressources et réglages">
+        <button id="site-info-open" aria-label="Infos" title="Infos" aria-haspopup="dialog" aria-controls="site-info-dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v.2"/></svg></button>
+        <button id="resources-open" aria-label="Ressources" title="Ressources" aria-haspopup="dialog" aria-controls="resources-dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v15M12 5C9 3 5 3 2 4v15c3-1 7-1 10 1 3-2 7-2 10-1V4c-3-1-7-1-10 1Z"/></svg></button>
+        <button id="font-settings-open" aria-label="Réglages de police" title="Réglages de police" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 2-.5 3-2 .9-2.6-1.1-2 3.4L5 10v3l-2.1 1.8 2 3.4L7.5 17l2 .9.5 3.1h4l.5-3.1 2-.9 2.6 1.2 2-3.4L19 13v-3l2.1-1.8-2-3.4-2.6 1.1-2-.9L14 2Z"/><circle cx="12" cy="11.5" r="3"/></svg></button>
+      </div>
+    </div>
+  </header>
+  <div id="phrases-screen">
+  <div class="exercise-toolbar">
+    <div class="modes" role="group" aria-label="Écriture">
+      <button id="hiragana" aria-pressed="true">Hiragana</button>
+      <button id="katakana" aria-pressed="false">Katakana</button>
+    </div>
+    <div class="romaji-controls">
+    <button id="romaji-toggle" class="romaji-switch" role="switch" aria-controls="romaji" aria-checked="false" aria-label="Afficher le rōmaji">
+      <span class="romaji-switch-label">Rōmaji</span>
+      <span class="romaji-switch-track" aria-hidden="true"><span class="romaji-switch-thumb"></span></span>
+      <span id="romaji-toggle-state" class="romaji-switch-state">Off</span>
+    </button>
+    <label class="romaji-always"><input id="romaji-always" type="checkbox"> Toujours visible</label>
+    </div>
+    <button id="table-open" class="quiet">あ / ア · Table des kana</button>
+  </div>
+  <main>
+    <section id="exercise" aria-label="Reconstruction">
+      <h1 id="romaji" data-blurred="true" aria-hidden="true"></h1>
+      <p id="written-answer" lang="ja" hidden></p>
+      <p id="translation"></p>
+      <div id="slots" class="tiles" role="group" aria-label="Votre réponse"></div>
+      <div id="pool" class="tiles" role="group" aria-label="Kana disponibles"></div>
+      <p id="feedback" role="status" aria-live="polite"></p>
+      <div class="commands" role="group" aria-label="Commandes">
+        <button id="check" class="primary">Vérifier</button>
+        <button id="reset" class="reset" title="Vider la réponse">RAZ</button>
+        <button id="undo" aria-label="Retirer le dernier kana placé" title="Retirer le dernier kana placé">←</button>
+        <button id="hint" class="help" aria-label="Placer un indice" title="Placer le prochain kana correct">💡</button>
+        <button id="solution" class="help" aria-label="Afficher la solution" title="Afficher ou masquer la solution" aria-expanded="false">👁</button>
+        <button id="audio" aria-label="Écouter la phrase" title="Écouter en japonais">♪</button>
+      </div>
+      <div id="correction-row"><button id="clear-errors" class="quiet" hidden>Effacer seulement les erreurs</button></div>
+      <p id="answer" lang="ja" hidden></p>
+      <nav class="navigation" aria-label="Parcourir les exercices">
+        <button id="stats-open" aria-label="Statistiques de la session" title="Statistiques de la session" aria-haspopup="dialog" aria-controls="stats-dialog">📊</button>
+        <button id="previous" aria-label="Phrase précédente" title="Phrase précédente">⬅️</button>
+        <button id="next" aria-label="Phrase suivante" title="Phrase suivante">➡️</button>
+        <button id="random" aria-label="Phrase aléatoire" title="Phrase aléatoire">🎲</button>
+      </nav>
+    </section>
+    <p id="empty" hidden>Aucun exercice pour ces filtres. Modifiez le thème, le niveau ou « À revoir ».</p>
+    <p id="counter"></p>
+    <div class="filters" aria-label="Filtres">
+      <label>Thème <select id="theme"><option value="">Tous les thèmes</option></select></label>
+      <label>Niveau <select id="level"><option value="">Tous les niveaux</option><option value="1">1 · Simple</option><option value="2">2 · Vie réelle</option><option value="3">3 · Plus long</option></select></label>
+      <label class="checkbox"><input type="checkbox" id="review-only"> À revoir</label>
+      <button id="mark" class="quiet" aria-pressed="false">☆ À revoir</button>
+    </div>
+    <p id="storage-warning" class="notice" role="status" hidden>La progression reste disponible pendant cette visite, mais ce navigateur ne permet pas de l’enregistrer.</p>
+    <noscript>Activez JavaScript pour utiliser cet exercice.</noscript>
+  </main>
+  <dialog id="kana-dialog" aria-labelledby="table-title">
+    <div class="dialog-heading"><h2 id="table-title">Table des hiragana</h2><button id="table-close" aria-label="Fermer la table">Fermer</button></div>
+    <p>Cliquez sur un kana pour voir l’ordre des traits, révéler sa lecture et l’écouter.</p>
+    <p id="table-audio-status" role="status"></p>
+    <div id="kana-table"></div>
+  </dialog>
+  </div>
+  <section id="atelier-screen" aria-label="Atelier kana" hidden>
+    <iframe id="atelier-frame" title="Atelier kana : table, cartes, quiz et révisions" data-src="atelier.html"></iframe>
+  </section>
+<dialog id="font-settings-dialog" aria-labelledby="font-settings-title">
+    <div class="dialog-heading"><h2 id="font-settings-title">Police japonaise</h2><button id="font-settings-close">Fermer</button></div>
+    <label for="shared-font-choice">Police des deux écrans</label>
+    <select id="shared-font-choice"><option value="serif">Classique — Noto Serif JP</option><option value="rounded">Style iPhone — Hiragino Sans</option></select>
+    <p lang="ja" class="font-preview">あいうえお　きょう　これはねこです</p>
+    <p>Le choix s’applique aux deux écrans. Hiragino Sans utilise la police installée sur votre appareil Apple ; ailleurs, une police sans empattement prend le relais.</p>
+  </dialog>
+<dialog id="site-info-dialog" aria-labelledby="site-info-title">
+    <div class="dialog-heading"><h2 id="site-info-title">Comment utiliser le site</h2><button id="site-info-close" autofocus>Fermer</button></div>
+    <p>Deux façons complémentaires d’apprendre : reconstruire des phrases et étudier les kana. Les boutons <strong>Phrases</strong> et <strong>Atelier kana</strong> permettent de passer d’un écran à l’autre en conservant l’exercice en cours.</p>
+    <h3>1. Phrases : reconstruire le japonais</h3>
+    <p>Le site s’ouvre directement sur un exercice. La banque contient <strong>374 phrases en hiragana</strong>, réparties en trois niveaux, et <strong>115 entrées en katakana</strong> pour le vocabulaire courant.</p>
+    <ul>
+      <li><strong>Français en bleu :</strong> le sens de la phrase reste visible.</li>
+      <li><strong>Rōmaji :</strong> le basculeur On/Off au centre de la ligne Hiragana/Katakana affiche ou masque la prononciation. Cochez « Toujours visible » pour la garder affichée entre les exercices et lors des prochaines visites dans ce navigateur. Passer sur Off désactive aussi cette option. Décocher seulement l’option conserve l’affichage de la phrase en cours, puis rétablit le masquage à la phrase suivante.</li>
+      <li><strong>Placer les kana :</strong> cliquez sur une tuile pour remplir la première case vide. Chaque occurrence d’un même caractère possède sa propre tuile.</li>
+      <li><strong>Corriger :</strong> cliquez sur une case remplie pour récupérer sa tuile. <strong>←</strong> retire le dernier kana placé ; <strong>RAZ</strong> vide la réponse.</li>
+      <li><strong>Vérifier :</strong> les bonnes cases deviennent vertes et affichent leur lecture au-dessus ; les erreurs deviennent rouges. Les cases validées sont verrouillées : ni un clic ni ← ne les retire. Vous pouvez effacer seulement les erreurs. RAZ permet de tout recommencer.</li>
+      <li><strong>💡 Indice :</strong> place ou corrige un seul kana à la fois. Chaque utilisation est comptée.</li>
+      <li><strong>👁 Solution :</strong> affiche ou masque la réponse en kana, avec des espaces pédagogiques entre les mots. Sa consultation est comptée.</li>
+      <li><strong>♪ Audio :</strong> écoutez la phrase en japonais, à vitesse légèrement ralentie.</li>
+    </ul>
+    <p><strong>Après une réussite :</strong> Vérifier devient inactif, un petit son discret retentit et la phrase est prononcée. Le rōmaji apparaît en noir, puis l’écriture japonaise habituelle en rouge, avec les kanji appropriés et sans espaces. Les cases de reconstruction restent en kana.</p>
+    <p><strong>Particules et petits kana :</strong> は se prononce « wa » lorsqu’il sert de particule, へ « e » et を « o ». Les petits ゃ, ゅ, ょ et っ occupent chacun une case. Le petit っ marque une pause avant la consonne suivante ; ー prolonge la voyelle en katakana.</p>
+    <h3>2. Choisir ce que vous travaillez</h3>
+    <p><strong>⬅️ / ➡️</strong> passent à l’exercice précédent ou suivant ; <strong>🎲</strong> choisit un exercice au hasard dans la sélection. Les filtres <strong>thème</strong> et <strong>niveau</strong> permettent de cibler votre pratique : salutations, restaurant, transport, voyage, famille, etc.</p>
+    <ul>
+      <li><strong>Niveau 1 :</strong> phrases simples.</li>
+      <li><strong>Niveau 2 :</strong> courtes phrases de la vie réelle.</li>
+      <li><strong>Niveau 3 :</strong> phrases plus longues, encore accessibles.</li>
+    </ul>
+    <p><strong>À revoir :</strong> marquez une phrase avec ☆ pour la retrouver. Les erreurs et les aides utilisées contribuent aussi à repérer les difficultés. Le filtre À revoir rassemble ces phrases ; les réussites sans aide réduisent progressivement leur priorité.</p>
+    <p>Le bouton 📊 à gauche de Phrase précédente ouvre les statistiques de session : exercices visités et réussis, réussites sans aide, vérifications incorrectes, indices et solutions consultées. Une nouvelle session commence à l’ouverture ou au rechargement de la page. Le bouton de remise à zéro de cette modale ne supprime pas votre progression enregistrée ni vos phrases à revoir.</p>
+    <h3>3. Tables de kana et ordre des traits</h3>
+    <p>Le bouton <strong>あ / ア · Table des kana</strong> ouvre une table depuis l’exercice. Dans cette table comme dans celle de l’atelier, un clic révèle la lecture, lance la prononciation lorsque celle-ci est disponible et ouvre un <strong>dessin statique avec les traits numérotés</strong>. Suivez les numéros pour écrire le caractère. Pour une combinaison comme きゃ, chaque caractère a son dessin.</p>
+    <p><strong>Fermer</strong> ou la touche <strong>Échap</strong> ramène à la table. Les dessins sont intégrés au site et ne nécessitent pas de service externe.</p>
+    <h3>4. Atelier kana : apprendre, cartes et quiz</h3>
+    <p>L’atelier propose les deux alphabets. Le filtre <strong>Contenu</strong> sélectionne les kana de base, les dakuten/handakuten, les combinaisons ou l’ensemble ; <strong>Série</strong> cible une ligne du tableau.</p>
+    <ul>
+      <li><strong>Apprendre :</strong> explorez la table. Les lectures sont cachées jusqu’au clic ; les pastilles indiquent votre progression.</li>
+      <li><strong>Cartes :</strong> retournez une carte pour voir la réponse, puis choisissez « Je savais » ou « À revoir ». Le sens peut être kana → rōmaji ou rōmaji → kana.</li>
+      <li><strong>Quiz :</strong> choisissez un QCM, une réponse à taper ou la reconnaissance d’un son. Le bouton ♪ permet d’écouter dans le quiz audio. Après correction, passez à la question suivante à votre rythme.</li>
+      <li><strong>À revoir :</strong> retrouvez les kana difficiles et démarrez des cartes ou un quiz ciblé.</li>
+    </ul>
+    <p><strong>Raccourcis des cartes :</strong> Espace retourne la carte ; ← et → naviguent ; V signifie « Je savais » et X « À revoir », une fois la réponse révélée.</p>
+    <h3>5. Réglages et audio</h3>
+    <p>Le bouton <strong>⚙ en haut du site</strong> règle la police japonaise pour les deux écrans : classique (Noto Serif JP) ou style iPhone (Hiragino Sans, si présente sur votre appareil).</p>
+    <p>Dans l’atelier, son propre bouton <strong>⚙</strong> permet aussi de régler la prononciation au retournement des cartes et le <strong>parcours débutant</strong>, qui ajoute progressivement les séries de kana. L’effacement de progression proposé dans ce panneau concerne uniquement l’atelier.</p>
+    <p>Aucun son ne démarre à l’ouverture du site. La voix dépend des voix japonaises disponibles sur votre appareil. Même sans voix japonaise, les exercices restent utilisables.</p>
+    <h3>6. Votre progression et les ressources</h3>
+    <p>Les résultats et réglages sont enregistrés localement dans ce navigateur, sans compte. La progression des phrases et celle de l’atelier sont distinctes. Elles ne sont pas synchronisées entre appareils ; changer de navigateur ou d’adresse du site, ou effacer les données du navigateur, peut vous faire retrouver une progression vide.</p>
+    <p>Le bouton <strong>Ressources</strong>, à droite d’Infos en haut du site, donne accès aux tableaux et au manuel NHK, aux dessins et au document sur les kanji.</p>
+    <p class="info-signature">CilMac, 21 sept. 2026 - légèrement assisté par ChatGPT-6 Astra 😁</p>
+  </dialog>
+  <dialog id="resources-dialog" aria-labelledby="resources-title">
+    <div class="dialog-heading"><h2 id="resources-title">Ressources</h2><button id="resources-close" autofocus>Fermer</button></div>
+    <p>Les documents s’ouvrent dans un nouvel onglet.</p>
+    <div class="resource-links">
+      <a href="nhk_hiragana.png" target="_blank" rel="noopener">Table NHK hiragana</a>
+      <a href="nhk_katakana.png" target="_blank" rel="noopener">Table NHK katakana</a>
+      <a href="hiragana_dessins.png" target="_blank" rel="noopener">Dessins hiragana</a>
+      <a href="katakana_dessins.png" target="_blank" rel="noopener">Dessins katakana</a>
+      <a href="nhk_le_japonais.pdf" target="_blank" rel="noopener">Manuel NHK</a>
+      <a href="100_kanji.pdf" target="_blank" rel="noopener">100 kanji</a>
+    </div>
+  </dialog>
+  <dialog id="stats-dialog" aria-labelledby="stats-title">
+    <div class="dialog-heading"><h2 id="stats-title">Statistiques</h2><button id="stats-close" autofocus>Fermer</button></div>
+    <section class="session-score-panel" aria-label="Score de la session">
+      <h3>Score de la session</h3>
+      <strong id="session-score">—</strong>
+      <p id="session-score-detail"></p>
+      <details><summary>Comment est-il calculé ?</summary>
+        <p>Réussites ÷ (réussites + vérifications incorrectes + indices + solutions consultées) × 100, arrondi à l’entier inférieur.</p>
+        <p>Exemple : 1 réussite avec 1 indice = 50 %. Chaque aide compte, même si la réponse est ensuite correcte. 100 % exige aucune erreur, aucun indice et aucune solution consultée pendant la session.</p>
+      </details>
+    </section>
+    <p class="stats-subtitle">Session en cours · Hiragana et Katakana</p>
+    <div id="stats" aria-label="Statistiques de la session"></div>
+    <p class="stats-note">Les compteurs repartent à zéro à l’ouverture ou au rechargement. Votre progression et vos phrases à revoir restent enregistrées.</p>
+    <button id="stats-reset">Remettre la session à zéro</button>
+    <p id="stats-reset-status" role="status"></p>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,305 @@
+# base
+1|ここです|Koko desu|C’est ici.
+1|そうです|Sou desu|C’est bien cela.
+1|そうではありません|Sou dewa arimasen|Ce n’est pas cela.
+1|これです|Kore desu|C’est celui-ci.
+1|あれです|Are desu|C’est celui-là, là-bas.
+1|あります|Arimasu|Il y en a.
+1|ありません|Arimasen|Il n’y en a pas.
+1|いいです|Ii desu|C’est bien.
+1|だめです|Dame desu|Ce n’est pas possible.
+1|ちょっとまってください|Chotto matte kudasai|Attendez un instant, s’il vous plaît.
+1|これをください|Kore o kudasai|Ceci, s’il vous plaît.
+1|どうぞ|Douzo|Je vous en prie. / Allez-y.
+# salutations
+1|こんばんは|Konbanwa|Bonsoir.
+1|おやすみなさい|Oyasuminasai|Bonne nuit.
+1|またあした|Mata ashita|À demain.
+1|またね|Mata ne|À bientôt. (familier)
+1|ではまた|Dewa mata|À une prochaine fois.
+1|しつれいします|Shitsurei shimasu|Excusez-moi. (en entrant ou en partant)
+1|おさきにしつれいします|Osaki ni shitsurei shimasu|Je vous laisse, à bientôt. (en partant avant les autres)
+1|おつかれさまです|Otsukaresama desu|Merci pour votre travail. (salutation entre collègues)
+1|おひさしぶりです|Ohisashiburi desu|Cela fait longtemps !
+2|おあいできてうれしいです|Oai dekite ureshii desu|Je suis heureux de vous rencontrer.
+2|きをつけてください|Ki o tsukete kudasai|Faites attention à vous.
+2|よいたびを|Yoi tabi o|Bon voyage !
+# présentation
+1|はじめまして|Hajimemashite|Enchanté de faire votre connaissance.
+1|たなかです|Tanaka desu|Je m’appelle Tanaka.
+2|よろしくおねがいします|Yoroshiku onegaishimasu|Ravi de faire votre connaissance. (formule de présentation)
+2|ふらんすじんです|Furansujin desu|Je suis français(e).
+2|ぱりにすんでいます|Pari ni sunde imasu|J’habite à Paris.
+2|にほんははじめてです|Nihon wa hajimete desu|C’est ma première visite au Japon.
+2|にほんはにかいめです|Nihon wa nikaime desu|C’est ma deuxième visite au Japon.
+2|つまときました|Tsuma to kimashita|Je suis venu avec ma femme.
+2|おっとときました|Otto to kimashita|Je suis venue avec mon mari.
+2|しごとはやめました|Shigoto wa yamemashita|J’ai quitté mon travail.
+3|さんしゅうかんたいざいします|Sanshuukan taizai shimasu|Je reste trois semaines.
+3|にほんごをならっています|Nihongo o naratte imasu|Je prends des cours de japonais.
+# conversation
+1|わかりました|Wakarimashita|J’ai compris.
+1|すこしわかります|Sukoshi wakarimasu|Je comprends un peu.
+2|にほんごはまだむずかしいです|Nihongo wa mada muzukashii desu|Le japonais est encore difficile pour moi.
+2|もうすこしゆっくりおねがいします|Mou sukoshi yukkuri onegaishimasu|Un peu plus lentement, s’il vous plaît.
+2|もういちどいってください|Mou ichido itte kudasai|Dites-le encore une fois, s’il vous plaît.
+2|ここにかいてください|Koko ni kaite kudasai|Écrivez-le ici, s’il vous plaît.
+2|ひらがなでおねがいします|Hiragana de onegaishimasu|En hiragana, s’il vous plaît.
+2|これはどういういみですか|Kore wa dou iu imi desu ka|Qu’est-ce que cela signifie ?
+2|なんとよみますか|Nan to yomimasu ka|Comment cela se lit-il ?
+3|にほんごでなんといいますか|Nihongo de nan to iimasu ka|Comment dit-on cela en japonais ?
+2|えいごははなせますか|Eigo wa hanasemasu ka|Parlez-vous anglais ?
+3|かんたんなことばでおねがいします|Kantan na kotoba de onegaishimasu|Avec des mots simples, s’il vous plaît.
+3|うまくいえなくてすみません|Umaku ienakute sumimasen|Excusez-moi de ne pas bien réussir à m’exprimer.
+3|にほんごをれんしゅうしたいです|Nihongo o renshuu shitai desu|J’aimerais pratiquer le japonais.
+1|なるほど|Naruhodo|Ah, je vois.
+1|そうなんですね|Sou nan desu ne|Ah, d’accord !
+1|ほんとうですか|Hontou desu ka|Vraiment ?
+1|よかったです|Yokatta desu|Je suis content que cela se soit bien passé.
+1|ざんねんです|Zannen desu|C’est dommage.
+1|もちろんです|Mochiron desu|Bien sûr.
+# questions
+1|だれですか|Dare desu ka|Qui est-ce ?
+1|どこですか|Doko desu ka|Où est-ce ?
+1|いつですか|Itsu desu ka|Quand est-ce ?
+1|どれですか|Dore desu ka|Lequel est-ce ?
+1|どうですか|Dou desu ka|Comment est-ce ?
+2|どうしてですか|Doushite desu ka|Pourquoi ?
+2|どちらがいいですか|Dochira ga ii desu ka|Lequel des deux conseillez-vous ?
+2|いくつありますか|Ikutsu arimasu ka|Combien y en a-t-il ?
+2|どのくらいかかりますか|Dono kurai kakarimasu ka|Combien de temps cela prend-il ?
+2|だれにきけばいいですか|Dare ni kikeba ii desu ka|À qui puis-je demander ?
+2|ここでいいですか|Koko de ii desu ka|Est-ce que cet endroit convient ?
+2|なにがおすすめですか|Nani ga osusume desu ka|Que recommandez-vous ?
+# restaurant
+1|ふたりです|Futari desu|Nous sommes deux.
+2|せきはあいていますか|Seki wa aite imasu ka|Avez-vous une table disponible ?
+2|よやくしてあります|Yoyaku shite arimasu|J’ai une réservation.
+2|きんえんせきをおねがいします|Kin'enseki o onegaishimasu|Une place non-fumeur, s’il vous plaît.
+2|まどのそばがいいです|Mado no soba ga ii desu|Je préférerais être près de la fenêtre.
+2|ちゅうもんしてもいいですか|Chuumon shite mo ii desu ka|Pouvons-nous commander ?
+2|おなじものをください|Onaji mono o kudasai|La même chose, s’il vous plaît.
+2|これをふたつください|Kore o futatsu kudasai|Deux de ceci, s’il vous plaît.
+2|とりざらをください|Torizara o kudasai|Une petite assiette pour partager, s’il vous plaît.
+2|おはしをください|Ohashi o kudasai|Des baguettes, s’il vous plaît.
+2|おかいけいをおねがいします|Okaikei o onegaishimasu|L’addition, s’il vous plaît.
+3|べつべつにはらえますか|Betsubetsu ni haraemasu ka|Peut-on payer séparément ?
+3|もちかえりはできますか|Mochikaeri wa dekimasu ka|Peut-on prendre à emporter ?
+3|まだちゅうもんしていません|Mada chuumon shite imasen|Nous n’avons pas encore commandé.
+3|りょうりがまだきていません|Ryouri ga mada kite imasen|Notre plat n’est pas encore arrivé.
+# nourriture
+1|おなかがいっぱいです|Onaka ga ippai desu|Je n’ai plus faim.
+1|からいです|Karai desu|C’est épicé.
+1|あまいです|Amai desu|C’est sucré.
+1|しょっぱいです|Shoppai desu|C’est salé.
+2|にくはたべません|Niku wa tabemasen|Je ne mange pas de viande.
+2|さかなはたべられます|Sakana wa taberaremasu|Je peux manger du poisson.
+2|これはなまですか|Kore wa nama desu ka|Est-ce cru ?
+2|たまごがはいっていますか|Tamago ga haitte imasu ka|Est-ce qu’il y a de l’œuf dedans ?
+2|こむぎははいっていますか|Komugi wa haitte imasu ka|Est-ce que cela contient du blé ?
+2|えびはたべられません|Ebi wa taberaremasen|Je ne peux pas manger de crevettes.
+2|わさびぬきでおねがいします|Wasabi nuki de onegaishimasu|Sans wasabi, s’il vous plaît.
+3|あまりからくしないでください|Amari karaku shinai de kudasai|Ne le faites pas trop épicé, s’il vous plaît.
+3|このりょうりはなんですか|Kono ryouri wa nan desu ka|Quel est ce plat ?
+3|はじめてたべました|Hajimete tabemashita|C’est la première fois que j’en mange.
+# boissons
+1|みずをください|Mizu o kudasai|De l’eau, s’il vous plaît.
+1|おちゃをください|Ocha o kudasai|Du thé, s’il vous plaît.
+1|かんぱい|Kanpai|Santé ! (pour trinquer)
+2|おみずのおかわりをください|Omizu no okawari o kudasai|Encore de l’eau, s’il vous plaît.
+2|つめたいものがのみたいです|Tsumetai mono ga nomitai desu|J’aimerais boire quelque chose de frais.
+2|あたたかいおちゃはありますか|Atatakai ocha wa arimasu ka|Avez-vous du thé chaud ?
+2|こおりなしでおねがいします|Koori nashi de onegaishimasu|Sans glaçons, s’il vous plaît.
+2|さとうはいりません|Satou wa irimasen|Je ne veux pas de sucre, merci.
+2|おさけはのみません|Osake wa nomimasen|Je ne bois pas d’alcool.
+3|このにほんしゅはからくちですか|Kono nihonshu wa karakuchi desu ka|Ce saké est-il sec ?
+3|じもとのおさけはありますか|Jimoto no osake wa arimasu ka|Avez-vous du saké de la région ?
+3|すこしだけあじみできますか|Sukoshi dake ajimi dekimasu ka|Puis-je en goûter juste un peu ?
+# transport
+2|えきはどこですか|Eki wa doko desu ka|Où est la gare ?
+2|きっぷうりばはどこですか|Kippu uriba wa doko desu ka|Où est le guichet des billets ?
+2|とうきょうまでおねがいします|Toukyou made onegaishimasu|Jusqu’à Tokyo, s’il vous plaît.
+2|かたみちでおねがいします|Katamichi de onegaishimasu|Un aller simple, s’il vous plaît.
+2|おうふくでおねがいします|Oufuku de onegaishimasu|Un aller-retour, s’il vous plaît.
+3|このでんしゃはきょうとにとまりますか|Kono densha wa Kyouto ni tomarimasu ka|Ce train s’arrête-t-il à Kyoto ?
+3|どこでのりかえますか|Doko de norikaemasu ka|Où faut-il changer ?
+2|なんばんせんですか|Nanbansen desu ka|De quelle voie s’agit-il ?
+3|つぎのえきでおります|Tsugi no eki de orimasu|Je descends à la prochaine gare.
+3|このせきはあいていますか|Kono seki wa aite imasu ka|Cette place est-elle libre ?
+3|さいしゅうでんしゃはなんじですか|Saishuu densha wa nanji desu ka|À quelle heure est le dernier train ?
+3|でんしゃがおくれています|Densha ga okurete imasu|Le train a du retard.
+3|ここでおろしてください|Koko de oroshite kudasai|Déposez-moi ici, s’il vous plaît.
+2|くうこうへいきます|Kuukou e ikimasu|Je vais à l’aéroport.
+# orientation
+1|みぎです|Migi desu|C’est à droite.
+1|ひだりです|Hidari desu|C’est à gauche.
+1|まっすぐです|Massugu desu|C’est tout droit.
+2|えきのとなりです|Eki no tonari desu|C’est à côté de la gare.
+2|みちにまよいました|Michi ni mayoimashita|Je me suis perdu(e).
+2|あるいていけますか|Aruite ikemasu ka|Peut-on y aller à pied ?
+2|ここからとおいですか|Koko kara tooi desu ka|Est-ce loin d’ici ?
+2|ちかくにありますか|Chikaku ni arimasu ka|Y en a-t-il près d’ici ?
+2|いりぐちはどこですか|Iriguchi wa doko desu ka|Où est l’entrée ?
+2|でぐちはあちらです|Deguchi wa achira desu|La sortie est par là.
+3|このみちであっていますか|Kono michi de atte imasu ka|Est-ce le bon chemin ?
+3|ちずでおしえてください|Chizu de oshiete kudasai|Montrez-le-moi sur la carte, s’il vous plaît.
+# hôtel
+2|へやをおねがいします|Heya o onegaishimasu|Je voudrais une chambre.
+2|いっぱくおねがいします|Ippaku onegaishimasu|Pour une nuit, s’il vous plaît.
+2|にはくしたいです|Nihaku shitai desu|Je voudrais rester deux nuits.
+2|よやくはしていません|Yoyaku wa shite imasen|Je n’ai pas réservé.
+2|かぎをなくしました|Kagi o nakushimashita|J’ai perdu ma clé.
+2|へやがさむいです|Heya ga samui desu|Il fait froid dans la chambre.
+2|おゆがでません|Oyu ga demasen|Il n’y a pas d’eau chaude.
+3|ちょうしょくはなんじからですか|Choushoku wa nanji kara desu ka|À partir de quelle heure sert-on le petit-déjeuner ?
+3|にもつをあずかってもらえますか|Nimotsu o azukatte moraemasu ka|Pourriez-vous garder mes bagages ?
+3|しずかなへやがいいです|Shizuka na heya ga ii desu|Je préférerais une chambre calme.
+3|もういっぱくできますか|Mou ippaku dekimasu ka|Puis-je rester une nuit de plus ?
+3|あしたのあさしゅっぱつします|Ashita no asa shuppatsu shimasu|Je pars demain matin.
+# shopping
+2|みているだけです|Mite iru dake desu|Je regarde seulement, merci.
+2|これをみせてください|Kore o misete kudasai|Montrez-moi ceci, s’il vous plaît.
+2|さわってもいいですか|Sawatte mo ii desu ka|Puis-je le toucher ?
+2|しちゃくしてもいいですか|Shichaku shite mo ii desu ka|Puis-je l’essayer ?
+3|もうすこしおおきいものはありますか|Mou sukoshi ookii mono wa arimasu ka|En avez-vous un un peu plus grand ?
+2|ほかのいろはありますか|Hoka no iro wa arimasu ka|Avez-vous d’autres couleurs ?
+2|ちょうどいいです|Choudo ii desu|C’est juste ce qu’il faut.
+2|すこしかんがえます|Sukoshi kangaemasu|Je vais réfléchir un peu.
+2|ふくろはいりません|Fukuro wa irimasen|Je n’ai pas besoin de sac.
+3|おみやげをさがしています|Omiyage o sagashite imasu|Je cherche un souvenir à offrir.
+3|げんきんではらいます|Genkin de haraimasu|Je paie en espèces.
+3|りょうしゅうしょをください|Ryoushuusho o kudasai|Un reçu, s’il vous plaît.
+3|これをつつんでください|Kore o tsutsunde kudasai|Emballez ceci, s’il vous plaît.
+# quotidien
+1|おきます|Okimasu|Je me lève.
+1|ねます|Nemasu|Je vais me coucher.
+2|まいあささんぽします|Maiasa sanpo shimasu|Je me promène tous les matins.
+2|あさごはんをたべます|Asagohan o tabemasu|Je prends le petit-déjeuner.
+2|かいものにいきます|Kaimono ni ikimasu|Je vais faire des courses.
+2|いえにかえります|Ie ni kaerimasu|Je rentre à la maison.
+2|てをあらいます|Te o araimasu|Je me lave les mains.
+2|おふろにはいります|Ofuro ni hairimasu|Je prends un bain.
+2|きょうはやすみです|Kyou wa yasumi desu|Aujourd’hui, je ne travaille pas.
+3|すこしやすみましょう|Sukoshi yasumimashou|Reposons-nous un peu.
+3|まどをあけてもいいですか|Mado o akete mo ii desu ka|Puis-je ouvrir la fenêtre ?
+3|でんきをけしてください|Denki o keshite kudasai|Éteignez la lumière, s’il vous plaît.
+# horaires
+1|いまです|Ima desu|C’est maintenant.
+1|あしたです|Ashita desu|C’est demain.
+1|きょうはにちようびです|Kyou wa nichiyoubi desu|Aujourd’hui, c’est dimanche.
+2|なんじにあいますか|Nanji ni aimasu ka|À quelle heure nous retrouvons-nous ?
+2|くじにあいましょう|Kuji ni aimashou|Retrouvons-nous à neuf heures.
+2|じゅうじはんです|Juuji han desu|Il est dix heures et demie.
+2|あとごふんです|Ato gofun desu|Encore cinq minutes.
+2|なんじまでですか|Nanji made desu ka|Jusqu’à quelle heure ?
+2|いつあいていますか|Itsu aite imasu ka|Quand êtes-vous disponible ?
+3|すこしおくれます|Sukoshi okuremasu|Je serai un peu en retard.
+3|じかんはだいじょうぶですか|Jikan wa daijoubu desu ka|Avez-vous assez de temps ?
+3|あしたははやくおきます|Ashita wa hayaku okimasu|Demain, je me lèverai tôt.
+# météo
+1|いいてんきですね|Ii tenki desu ne|Il fait beau, n’est-ce pas ?
+1|あめです|Ame desu|Il pleut.
+1|くもりです|Kumori desu|Le ciel est couvert.
+2|あめがふっています|Ame ga futte imasu|Il est en train de pleuvoir.
+2|ゆきがふっています|Yuki ga futte imasu|Il neige.
+2|かぜがつよいです|Kaze ga tsuyoi desu|Il y a beaucoup de vent.
+2|きょうはすずしいです|Kyou wa suzushii desu|Il fait frais aujourd’hui.
+2|きのうはあたたかかったです|Kinou wa atatakakatta desu|Il faisait doux hier.
+2|あしたははれますか|Ashita wa haremasu ka|Fera-t-il beau demain ?
+2|かさをもっていますか|Kasa o motte imasu ka|Avez-vous un parapluie ?
+3|あめがやみました|Ame ga yamimashita|La pluie s’est arrêtée.
+3|あさはさむくなります|Asa wa samuku narimasu|Il fera froid le matin.
+# famille
+1|かぞくです|Kazoku desu|C’est ma famille.
+1|これはむすめです|Kore wa musume desu|Voici ma fille. (sur une photo)
+1|これはむすこです|Kore wa musuko desu|Voici mon fils. (sur une photo)
+2|こどもがふたりいます|Kodomo ga futari imasu|J’ai deux enfants.
+2|まごがいます|Mago ga imasu|J’ai des petits-enfants.
+2|あねはふらんすにいます|Ane wa Furansu ni imasu|Ma grande sœur est en France.
+2|おとうとはがくせいです|Otouto wa gakusei desu|Mon petit frère est étudiant.
+2|かぞくはげんきです|Kazoku wa genki desu|Ma famille va bien.
+2|おかあさんはおげんきですか|Okaasan wa ogenki desu ka|Votre mère va-t-elle bien ?
+3|かぞくといっしょにすんでいます|Kazoku to issho ni sunde imasu|J’habite avec ma famille.
+3|かぞくのしゃしんをみせます|Kazoku no shashin o misemasu|Je vais vous montrer une photo de ma famille.
+3|まごにおみやげをかいます|Mago ni omiyage o kaimasu|J’achète un souvenir pour mon petit-enfant.
+# goûts
+1|すきです|Suki desu|J’aime cela.
+1|だいすきです|Daisuki desu|J’adore cela.
+1|にがてです|Nigate desu|Ce n’est pas mon fort. / Je n’aime pas beaucoup cela.
+2|なにがすきですか|Nani ga suki desu ka|Qu’aimez-vous ?
+2|わたしもすきです|Watashi mo suki desu|Moi aussi, j’aime cela.
+2|わしょくがすきです|Washoku ga suki desu|J’aime la cuisine japonaise.
+2|あまいものがすきです|Amai mono ga suki desu|J’aime les sucreries.
+2|からいものはにがてです|Karai mono wa nigate desu|Je n’aime pas beaucoup les plats épicés.
+2|どちらもすきです|Dochira mo suki desu|J’aime les deux.
+2|こちらのほうがすきです|Kochira no hou ga suki desu|Je préfère celui-ci.
+3|しずかなばしょがすきです|Shizuka na basho ga suki desu|J’aime les endroits calmes.
+3|にほんのえいがにきょうみがあります|Nihon no eiga ni kyoumi ga arimasu|Je m’intéresse au cinéma japonais.
+# loisirs
+1|しゅみはなんですか|Shumi wa nan desu ka|Quels sont vos loisirs ?
+2|ほんをよみます|Hon o yomimasu|Je lis un livre.
+2|おんがくをききます|Ongaku o kikimasu|J’écoute de la musique.
+2|えいがをみましょう|Eiga o mimashou|Allons voir un film.
+2|しゃしんをとります|Shashin o torimasu|Je prends des photos.
+2|えをかきます|E o kakimasu|Je dessine.
+2|りょうりをつくります|Ryouri o tsukurimasu|Je fais la cuisine.
+2|やまにのぼります|Yama ni noborimasu|Je fais l’ascension d’une montagne.
+2|うみでおよぎます|Umi de oyogimasu|Je nage dans la mer.
+3|こうえんをさんぽしましょう|Kouen o sanpo shimashou|Allons nous promener dans le parc.
+3|おんせんにいきたいです|Onsen ni ikitai desu|J’aimerais aller aux sources chaudes.
+3|きょうはなにをしますか|Kyou wa nani o shimasu ka|Que faites-vous aujourd’hui ?
+# descriptions
+1|おおきいですね|Ookii desu ne|C’est grand, n’est-ce pas ?
+1|ちいさいですね|Chiisai desu ne|C’est petit, n’est-ce pas ?
+1|あたらしいです|Atarashii desu|C’est neuf.
+1|ふるいです|Furui desu|C’est ancien.
+1|おもいです|Omoi desu|C’est lourd.
+1|かるいです|Karui desu|C’est léger.
+2|とてもべんりです|Totemo benri desu|C’est très pratique.
+2|しずかですね|Shizuka desu ne|C’est calme, n’est-ce pas ?
+2|にぎやかですね|Nigiyaka desu ne|C’est animé, n’est-ce pas ?
+2|ながいはしですね|Nagai hashi desu ne|C’est un long pont, n’est-ce pas ?
+2|このへやはあかるいです|Kono heya wa akarui desu|Cette pièce est lumineuse.
+3|ここからのけしきはきれいです|Koko kara no keshiki wa kirei desu|La vue d’ici est belle.
+# santé
+1|きぶんがわるいです|Kibun ga warui desu|Je ne me sens pas bien.
+1|ねつがあります|Netsu ga arimasu|J’ai de la fièvre.
+1|あたまがいたいです|Atama ga itai desu|J’ai mal à la tête.
+2|のどがいたいです|Nodo ga itai desu|J’ai mal à la gorge.
+2|くすりをのんでいます|Kusuri o nonde imasu|Je prends des médicaments.
+2|やっきょくはどこですか|Yakkyoku wa doko desu ka|Où est la pharmacie ?
+2|いしゃにみてもらいたいです|Isha ni mite moraitai desu|J’aimerais consulter un médecin.
+2|すこしすわりたいです|Sukoshi suwaritai desu|J’aimerais m’asseoir un moment.
+3|きゅうきゅうしゃをよんでください|Kyuukyuusha o yonde kudasai|Appelez une ambulance, s’il vous plaît.
+3|きのうからいたいです|Kinou kara itai desu|J’ai mal depuis hier.
+3|ここがいたいです|Koko ga itai desu|J’ai mal ici.
+3|くすりののみかたをおしえてください|Kusuri no nomikata o oshiete kudasai|Expliquez-moi comment prendre ce médicament, s’il vous plaît.
+# voyage
+2|しゃしんをとってもいいですか|Shashin o totte mo ii desu ka|Puis-je prendre une photo ?
+2|ここにはいってもいいですか|Koko ni haitte mo ii desu ka|Puis-je entrer ici ?
+2|くつをぬぎますか|Kutsu o nugimasu ka|Faut-il enlever ses chaussures ?
+2|おてらをみたいです|Otera o mitai desu|J’aimerais visiter un temple bouddhiste.
+2|じんじゃはどこですか|Jinja wa doko desu ka|Où est le sanctuaire shinto ?
+2|にゅうじょうりょうはいくらですか|Nyuujouryou wa ikura desu ka|Quel est le prix d’entrée ?
+2|きょうはあいていますか|Kyou wa aite imasu ka|Est-ce ouvert aujourd’hui ?
+3|にわをみてもいいですか|Niwa o mite mo ii desu ka|Puis-je voir le jardin ?
+3|しゃしんをとってもらえますか|Shashin o totte moraemasu ka|Pourriez-vous nous prendre en photo ?
+3|らいねんまたきたいです|Rainen mata kitai desu|J’aimerais revenir l’an prochain.
+3|にほんへいくのがたのしみです|Nihon e iku no ga tanoshimi desu|J’ai hâte d’aller au Japon.
+3|たのしいたびでした|Tanoshii tabi deshita|C’était un beau voyage.
+# rencontres
+1|ありがとう|Arigatou|Merci. (familier)
+2|たすかりました|Tasukarimashita|Vous m’avez bien aidé(e).
+2|ごしんせつにありがとうございます|Goshinsetsu ni arigatou gozaimasu|Merci pour votre gentillesse.
+2|おじゃまします|Ojama shimasu|Merci de m’accueillir. (en entrant chez quelqu’un)
+2|おじゃましました|Ojama shimashita|Merci de votre accueil. (en partant)
+2|これはおみやげです|Kore wa omiyage desu|C’est un petit cadeau pour vous.
+2|よかったらどうぞ|Yokattara douzo|Si cela vous fait plaisir, servez-vous.
+2|いっしょにいきませんか|Issho ni ikimasen ka|Voulez-vous venir avec nous ?
+2|またあいましょう|Mata aimashou|Revoyons-nous bientôt.
+3|れんらくしてもいいですか|Renraku shite mo ii desu ka|Puis-je vous recontacter ?
+3|いろいろおしえてくれてありがとう|Iroiro oshiete kurete arigatou|Merci de m’avoir appris tant de choses. (amical)
+3|またおはなししたいです|Mata ohanashi shitai desu|J’aimerais discuter encore avec vous.
+3|きょうはありがとうございました|Kyou wa arigatou gozaimashita|Merci pour cette journée.
+3|おへんじありがとうございます|Ohenji arigatou gozaimasu|Merci pour votre réponse.
+3|おそくなってすみません|Osoku natte sumimasen|Désolé(e) pour le retard.

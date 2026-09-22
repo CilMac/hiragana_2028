@@ -1,0 +1,128 @@
+# boissons
+1|コーヒー|Koohii|Café
+1|ビール|Biiru|Bière
+1|ワイン|Wain|Vin
+1|ジュース|Juusu|Jus
+1|ミルク|Miruku|Lait
+2|ウイスキー|Uisukii|Whisky
+2|カフェラテ|Kaferate|Café au lait (latte)
+# hôtel
+1|ホテル|Hoteru|Hôtel
+1|ロビー|Robii|Hall d’accueil
+2|フロント|Furonto|Réception
+2|チェックイン|Chekkuin|Arrivée à l’hôtel
+2|チェックアウト|Chekkuauto|Départ de l’hôtel
+1|シャワー|Shawaa|Douche
+1|タオル|Taoru|Serviette
+2|シャンプー|Shanpuu|Shampooing
+2|エアコン|Eakon|Climatiseur
+3|ルームサービス|Ruumu saabisu|Service en chambre
+# transport
+1|タクシー|Takushii|Taxi
+1|バス|Basu|Bus
+1|ホーム|Hoomu|Quai de gare
+2|エスカレーター|Esukareetaa|Escalator
+2|エレベーター|Erebeetaa|Ascenseur
+2|レンタカー|Rentakaa|Voiture de location
+2|ガソリン|Gasorin|Essence
+3|バスターミナル|Basu taaminaru|Gare routière
+# voyage
+2|パスポート|Pasupooto|Passeport
+2|スーツケース|Suutsukeesu|Valise
+1|ビザ|Biza|Visa
+2|チケット|Chiketto|Billet
+1|ツアー|Tsuaa|Excursion organisée
+1|ガイド|Gaido|Guide
+2|パンフレット|Panfuretto|Brochure
+2|コインロッカー|Koin rokkaa|Consigne à pièces
+# restaurant
+2|レストラン|Resutoran|Restaurant
+1|カフェ|Kafe|Café (établissement)
+1|メニュー|Menyuu|Carte du restaurant
+1|スプーン|Supuun|Cuillère
+1|フォーク|Fooku|Fourchette
+1|ナイフ|Naifu|Couteau
+1|コップ|Koppu|Verre à boire
+2|テーブル|Teeburu|Table
+3|テイクアウト|Teikuauto|Vente à emporter
+# nourriture
+1|パン|Pan|Pain
+1|チーズ|Chiizu|Fromage
+1|サラダ|Sarada|Salade
+1|スープ|Suupu|Soupe
+1|カレー|Karee|Curry
+1|ラーメン|Raamen|Rāmen
+1|ケーキ|Keeki|Gâteau
+2|アイスクリーム|Aisukuriimu|Crème glacée
+2|サンドイッチ|Sandoitchi|Sandwich
+2|チョコレート|Chokoreeto|Chocolat
+2|ヨーグルト|Yooguruto|Yaourt
+2|ハンバーグ|Hanbaagu|Steak haché à la japonaise
+3|ハンバーガー|Hanbaagaa|Hamburger
+# shopping
+1|スーパー|Suupaa|Supermarché
+1|コンビニ|Konbini|Supérette
+1|デパート|Depaato|Grand magasin
+1|レジ|Reji|Caisse
+1|サイズ|Saizu|Taille
+1|セール|Seeru|Soldes
+2|レシート|Reshiito|Ticket de caisse
+3|クレジットカード|Kurejitto kaado|Carte de crédit
+# technologie
+1|スマホ|Sumaho|Smartphone
+1|パソコン|Pasokon|Ordinateur
+1|カメラ|Kamera|Appareil photo
+1|メール|Meeru|Courriel
+2|パスワード|Pasuwaado|Mot de passe
+2|インターネット|Intaanetto|Internet
+2|アプリ|Apuri|Application
+2|バッテリー|Batterii|Batterie
+2|ケーブル|Keeburu|Câble
+3|ワイヤレス|Waiyaresu|Sans fil
+# objets
+1|ペン|Pen|Stylo
+1|ノート|Nooto|Cahier
+1|バッグ|Baggu|Sac
+1|ベッド|Beddo|Lit
+1|ソファ|Sofa|Canapé
+1|ドア|Doa|Porte
+2|リモコン|Rimokon|Télécommande
+2|プレゼント|Purezento|Cadeau
+# vêtements
+1|シャツ|Shatsu|Chemise
+1|コート|Kooto|Manteau
+1|ズボン|Zubon|Pantalon
+1|スカート|Sukaato|Jupe
+2|セーター|Seetaa|Pull
+2|ジャケット|Jaketto|Veste
+2|スニーカー|Suniikaa|Baskets
+2|マフラー|Mafuraa|Écharpe
+# loisirs
+1|テニス|Tenisu|Tennis
+1|プール|Puuru|Piscine
+1|ゲーム|Geemu|Jeu
+2|サッカー|Sakkaa|Football
+2|コンサート|Konsaato|Concert
+2|カラオケ|Karaoke|Karaoké
+2|キャンプ|Kyanpu|Camping
+3|ハイキング|Haikingu|Randonnée
+# services
+1|トイレ|Toire|Toilettes
+2|クリーニング|Kuriiningu|Nettoyage à sec
+2|クリニック|Kurinikku|Clinique / cabinet médical
+2|サービス|Saabisu|Service
+2|コピー|Kopii|Photocopie
+2|マッサージ|Massaaji|Massage
+3|コインランドリー|Koin randorii|Laverie automatique
+3|インフォメーション|Infomeeshon|Point d’information
+# pays
+1|フランス|Furansu|France
+1|イギリス|Igirisu|Royaume-Uni
+1|ドイツ|Doitsu|Allemagne
+1|イタリア|Itaria|Italie
+1|スペイン|Supein|Espagne
+1|カナダ|Kanada|Canada
+1|アメリカ|Amerika|États-Unis
+2|オーストラリア|Oosutoraria|Australie
+2|スイス|Suisu|Suisse
+2|ベルギー|Berugii|Belgique

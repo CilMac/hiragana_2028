@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f7f3ec">
+<title>Atelier kana — apprendre, cartes et quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;1,400&family=Lato:wght@300;400;700&family=M+PLUS+Rounded+1c:wght@400;500&family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<script defer src="kana-strokes.js"></script>
+<link rel="stylesheet" href="atelier.css">
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <h1 class="topbar-title">Apprendre les kana</h1>
+    <div class="top-actions">
+      <div class="pill-group" aria-label="Alphabet">
+        <button class="pill-btn active" id="script-hira" onclick="setScript('hiragana')">Hiragana</button>
+        <button class="pill-btn" id="script-kata" onclick="setScript('katakana')">Katakana <span style="opacity:.6">· option</span></button>
+      </div>
+      <button class="icon-btn" onclick="openInfo()" title="Aide" aria-label="Aide de l’atelier">ℹ</button>
+      <button class="icon-btn" onclick="openSettings()" title="Réglages" aria-label="Réglages de l’atelier">⚙</button>
+    </div>
+  </div>
+  <div class="modebar">
+    <div class="modebar-inner">
+      <div class="mode-tabs">
+        <button class="mode-btn active" id="mode-learn" onclick="setMode('learn')">Apprendre</button>
+        <button class="mode-btn" id="mode-cards" onclick="setMode('cards')">Cartes</button>
+        <button class="mode-btn" id="mode-quiz" onclick="setMode('quiz')">Quiz</button>
+        <button class="mode-btn" id="mode-review" onclick="setMode('review')">À revoir</button>
+      </div>
+      <div class="progress-mini">
+        <span id="mastery-text">0 / 46 acquis</span>
+        <div class="mini-track"><div class="mini-fill" id="mastery-fill"></div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="control-panel">
+    <div class="control-group">
+      <label class="control-label" for="set-select">Contenu</label>
+      <select class="select" id="set-select" onchange="setContentSet(this.value)">
+        <option value="basic">Base — 46 kana</option>
+        <option value="dakuten">Dakuten / handakuten</option>
+        <option value="yoon">Combinaisons</option>
+        <option value="all">Tout</option>
+      </select>
+    </div>
+    <div class="control-group" id="row-control">
+      <label class="control-label" for="row-select">Série</label>
+      <select class="select" id="row-select" onchange="setRow(this.value)"></select>
+    </div>
+    <div class="control-group" id="direction-control" style="display:none">
+      <label class="control-label" for="direction-select">Sens</label>
+      <select class="select" id="direction-select" onchange="setDirection(this.value)">
+        <option value="char-romaji">Kana → rōmaji</option>
+        <option value="romaji-char">Rōmaji → kana</option>
+      </select>
+    </div>
+    <div class="control-group" id="quiz-type-control" style="display:none">
+      <label class="control-label" for="quiz-type-select">Type de quiz</label>
+      <select class="select" id="quiz-type-select" onchange="setQuizType(this.value)">
+        <option value="mcq">QCM</option>
+        <option value="typing">Taper la réponse</option>
+        <option value="audio">Reconnaître le son</option>
+      </select>
+    </div>
+    <div class="session-chip">
+      Sélection : <strong id="selection-count">46</strong>
+    </div>
+  </div>
+
+  <!-- APPRENDRE -->
+  <section class="panel active" id="panel-learn">
+    <div class="section-head">
+      <div class="section-title">
+        <h2>Table interactive</h2>
+        <p>Clique sur un kana pour voir l’ordre des traits, révéler son rōmaji et entendre sa prononciation. La pastille indique ta progression.</p>
+      </div>
+      <div class="legend">
+        <span>● acquis</span><span>● en cours</span><span>● difficile</span>
+      </div>
+    </div>
+    <div class="kana-groups" id="kana-groups"></div>
+  </section>
+
+  <!-- CARTES -->
+  <section class="panel" id="panel-cards">
+    <div class="study-wrap">
+      <div class="study-progress">
+        <div class="study-track"><div class="study-fill" id="card-progress"></div></div>
+        <span id="card-count">1 / 46</span>
+      </div>
+      <div class="card-shell">
+        <div class="card" id="flash-card" tabindex="0" role="group" aria-label="Carte à retourner avec Espace" onclick="flipCard()">
+          <div class="card-face card-front" id="card-front"></div>
+          <div class="card-face card-back" id="card-back"></div>
+        </div>
+      </div>
+      <div class="hint" id="card-hint">Clique pour retourner</div>
+      <div class="study-actions" id="answer-actions" style="display:none">
+        <button class="action-btn bad" onclick="event.stopPropagation();rateCard(false)">✕ À revoir</button>
+        <button class="action-btn good" onclick="event.stopPropagation();rateCard(true)">✓ Je savais</button>
+      </div>
+      <div class="study-actions secondary">
+        <button class="action-btn" id="prev-card" onclick="prevCard()">← Précédent</button>
+        <button class="action-btn primary" onclick="randomCard()">🎲 Au hasard</button>
+        <button class="action-btn" id="next-card" onclick="nextCard()">Suivant →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="panel" id="panel-quiz">
+    <div class="quiz-box">
+      <div class="study-progress">
+        <div class="study-track"><div class="study-fill" id="quiz-progress"></div></div>
+        <span id="quiz-count">1 / 20</span>
+      </div>
+      <div class="quiz-question" id="quiz-question"></div>
+      <div class="quiz-options" id="quiz-options"></div>
+      <div class="type-wrap" id="type-wrap" style="display:none">
+        <input class="type-input" id="type-input" aria-label="Votre réponse" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Tape la réponse…" onkeydown="typingKey(event)">
+        <button class="action-btn primary" style="flex:0 0 auto" onclick="submitTyping()">Valider</button>
+      </div>
+      <div class="feedback" id="quiz-feedback"></div>
+      <div class="study-actions secondary">
+        <button class="action-btn" id="next-quiz" onclick="skipQuiz()">Passer</button>
+        <button class="action-btn primary" onclick="restartQuiz()">↺ Nouveau quiz</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEW -->
+  <section class="panel" id="panel-review">
+    <div class="section-head">
+      <div class="section-title">
+        <h2>Révision ciblée</h2>
+        <p>Les kana qui te posent le plus de difficultés remontent automatiquement ici.</p>
+      </div>
+    </div>
+    <div class="review-summary">
+      <div class="metric"><strong id="metric-mastered">0</strong><span>Kana acquis</span></div>
+      <div class="metric"><strong id="metric-learning">0</strong><span>En cours</span></div>
+      <div class="metric"><strong id="metric-weak">0</strong><span>À revoir</span></div>
+    </div>
+    <div id="review-content"></div>
+  </section>
+</main>
+
+<!-- SETTINGS -->
+<div class="overlay" id="settings-overlay" onclick="overlayClose(event,'settings-overlay')">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Réglages de l’atelier">
+    <button class="icon-btn modal-close" onclick="closeSettings()" aria-label="Fermer les réglages">✕</button>
+    <h3>Réglages</h3>
+
+    <div class="setting-row">
+      <div class="setting-top">
+        <div>
+          <div class="setting-name">Prononciation automatique</div>
+          <div class="setting-help">Prononce le kana lorsque la réponse d’une carte est révélée.</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="auto-audio" aria-label="Prononciation automatique" checked onchange="saveSettings()">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="setting-row">
+      <div class="setting-top">
+        <div>
+          <div class="setting-name">Parcours débutant</div>
+          <div class="setting-help">Limite automatiquement les kana de base aux premières séries. L’étape reste réglable ci-dessous.</div>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="progressive" aria-label="Parcours débutant" onchange="toggleProgressive()">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <select class="select settings-select" id="progressive-step" aria-label="Étape du parcours débutant" onchange="progressiveStepChanged()">
+        <option value="1">Étape 1 — voyelles</option>
+        <option value="2">Étape 2 — + série K</option>
+        <option value="3">Étape 3 — + série S</option>
+        <option value="4">Étape 4 — + série T</option>
+        <option value="5">Étape 5 — + série N</option>
+        <option value="6">Étape 6 — + série H</option>
+        <option value="7">Étape 7 — + série M</option>
+        <option value="8">Étape 8 — + série Y</option>
+        <option value="9">Étape 9 — + série R</option>
+        <option value="10">Étape 10 — + série W + ん / ン</option>
+      </select>
+    </div>
+
+    <div class="setting-row">
+      <div class="setting-name">Police japonaise</div>
+      <div class="setting-help">Le choix de police est commun aux deux écrans.</div>
+      <select class="select settings-select" id="font-choice" aria-label="Police japonaise" onchange="changeFont(this.value)">
+        <option value="serif">Noto Serif JP</option>
+        <option value="rounded">Style iPhone — Hiragino Sans</option>
+      </select>
+    </div>
+
+    <button class="danger-btn" onclick="resetProgress()">Effacer la progression de l’atelier</button>
+  </div>
+</div>
+
+<!-- INFO -->
+<div class="overlay" id="info-overlay" onclick="overlayClose(event,'info-overlay')">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Aide de l’atelier">
+    <button class="icon-btn modal-close" onclick="closeInfo()" aria-label="Fermer l’aide">✕</button>
+    <h3>Comment utiliser ce site</h3>
+    <div class="info-block">
+      <strong>Apprendre</strong> : table des kana avec leur rōmaji. Clique sur une case pour entendre la prononciation.
+    </div>
+    <div class="info-block">
+      <strong>Cartes</strong> : entraîne-toi dans les deux sens. Après avoir retourné la carte, indique <em>Je savais</em> ou <em>À revoir</em>.
+    </div>
+    <div class="info-block">
+      <strong>Quiz</strong> : trois variantes — QCM, saisie au clavier et reconnaissance audio. Les erreurs alimentent automatiquement le mode <em>À revoir</em>.
+    </div>
+    <div class="info-block">
+      <strong>Progression</strong> : elle est enregistrée uniquement dans ce navigateur grâce à <code>localStorage</code>. Aucun compte ni serveur n’est nécessaire.
+    </div>
+    <div class="info-block">
+      Raccourcis Cartes : <span class="kbd">Espace</span> retourner · <span class="kbd">←</span>/<span class="kbd">→</span> naviguer · <span class="kbd">V</span> je savais · <span class="kbd">X</span> à revoir.
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="atelier.js"></script>
+</body>
+</html>

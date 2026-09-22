@@ -1,0 +1,43 @@
+/* Charte commune aux deux écrans, issue du prototype fourni. */
+:root{
+  --ink:#1a1410;
+  --ink-soft:#4b413a;
+  --ink-faint:#7a6e68;
+  --washi:#f7f3ec;
+  --washi-dark:#eee7dc;
+  --washi-mid:#dfd5c7;
+  --paper:#fffdfa;
+  --red:#b5342a;
+  --red-soft:#f9ecea;
+  --gold:#bd9137;
+  --gold-soft:#f7f0dd;
+  --green:#2a7a6e;
+  --green-soft:#eaf4f1;
+  --blue:#315e8d;
+  --blue-soft:#edf3f8;
+  --violet:#66539b;
+  --violet-soft:#f0edf8;
+  --shadow:0 12px 40px rgba(55,43,33,.08);
+  --font-jp:'Noto Serif JP','Hiragino Mincho ProN','Yu Mincho',serif;
+  --font-body:'Lato',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-display:'Crimson Pro',Georgia,serif;
+  --radius:18px;
+}
+:root { color-scheme: light; }
+body { background:var(--washi); color:var(--ink); font-family:var(--font-body); }
+body::before {
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(130,110,85,.025) 3px,rgba(130,110,85,.025) 4px),repeating-linear-gradient(90deg,transparent,transparent 5px,rgba(130,110,85,.018) 5px,rgba(130,110,85,.018) 6px);
+}
+
+.stroke-dialog { box-sizing:border-box;width:min(660px,94vw);max-height:90dvh;overflow:auto;margin:auto;padding:24px;border:1px solid var(--washi-mid);border-radius:18px;background:var(--paper);color:var(--ink);font-family:var(--font-body); }
+.stroke-dialog::backdrop { background:rgba(32,28,24,.45); }
+.stroke-heading { display:flex;align-items:center;justify-content:space-between;gap:12px; }
+.stroke-heading h2 { font-size:1.35rem;line-height:1.4;margin:0; }
+.stroke-close { min-height:44px;padding:10px 18px;border:1px solid var(--washi-mid);border-radius:12px;background:var(--paper);color:var(--ink);font:inherit;cursor:pointer; }
+.stroke-drawings { display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:18px 0; }
+.stroke-drawings figure { margin:0;max-width:100%;text-align:center; }
+.stroke-drawings img { display:block;width:min(300px,70vw);height:auto;background:#fff;border:1px solid var(--washi-mid);border-radius:12px; }
+.stroke-drawings figcaption { font-family:var(--font-jp);font-size:1.6rem; }
+.stroke-credit { font-size:.8rem;line-height:1.6; }
+.stroke-credit a { color:inherit; }
