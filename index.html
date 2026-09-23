@@ -8,12 +8,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;1,400&family=Lato:wght@300;400;700&family=M+PLUS+Rounded+1c:wght@400;500&family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="theme.css">
 <script defer src="kana-strokes.js"></script>
-  <link rel="stylesheet" href="styles.css?v=resource-reader-2">
+  <link rel="stylesheet" href="styles.css?v=review-tools-1">
   <script defer src="phrases_hiragana.js?v=written-1"></script>
   <script defer src="mots_katakana.js"></script>
   <script defer src="kana_core.js?v=locked-1"></script>
   <script defer src="solution-format.js?v=2"></script>
-  <script defer src="kana_app.js?v=romaji-click-1"></script>
+  <script defer src="kana_app.js?v=review-tools-1"></script>
   <script defer src="navigation.js?v=resource-reader-2"></script>
   <script defer src="font-settings.js"></script>
 </head>
@@ -41,9 +41,12 @@
     </div>
     <label class="mini-control"><span>Thème</span><select id="theme"><option value="">Tous</option></select></label>
     <label class="mini-control"><span>Niveau</span><select id="level"><option value="">Tous</option><option value="1">1 · Simple</option><option value="2">2 · Vie réelle</option><option value="3">3 · Plus long</option></select></label>
-    <label class="mini-control"><span>Révision</span><select id="review-choice"><option value="all">Toutes</option><option value="review">À revoir</option></select></label>
+    <div class="review-control-group">
+      <label class="mini-control revision-control"><span>Révision</span><select id="review-choice"><option value="all">Toutes</option><option value="review">À revoir</option><option value="reset">RAZ des révisions…</option></select></label>
+      <button id="mark" class="toolbar-icon" aria-pressed="false" aria-label="Marquer cette phrase à revoir" title="Marquer cette phrase à revoir">☆</button>
+    </div>
     <label class="toolbar-review-filter" hidden><input type="checkbox" id="review-only"> Filtrer à revoir</label>
-    <label class="mini-control"><span>Rōmaji</span><select id="romaji-choice"><option value="hidden">Masqué</option><option value="current">Affiché</option><option value="always">Toujours</option></select></label>
+    <label class="mini-control romaji-control"><span>Rōmaji</span><select id="romaji-choice"><option value="hidden">Masqué</option><option value="current">Affiché</option><option value="always">Toujours</option></select></label>
     <div class="romaji-controls" hidden>
       <button id="romaji-toggle" class="romaji-switch" role="switch" aria-controls="romaji" aria-checked="false" aria-label="Afficher le rōmaji">
         <span class="romaji-switch-label">Rōmaji</span>
@@ -53,7 +56,6 @@
       <label class="romaji-always"><input id="romaji-always" type="checkbox"> Toujours</label>
     </div>
     <div class="toolbar-actions">
-      <button id="mark" class="toolbar-icon" aria-pressed="false" aria-label="Marquer cette phrase à revoir" title="Marquer cette phrase à revoir">☆</button>
       <button id="table-open" class="toolbar-icon table-icon" aria-label="Ouvrir la table des kana" title="Table des kana">あ/ア</button>
     </div>
   </div>
@@ -128,7 +130,7 @@
       <li><strong>Niveau 2 :</strong> courtes phrases de la vie réelle.</li>
       <li><strong>Niveau 3 :</strong> phrases plus longues, encore accessibles.</li>
     </ul>
-    <p><strong>À revoir :</strong> marquez une phrase avec ☆ pour la retrouver. Les erreurs et les aides utilisées contribuent aussi à repérer les difficultés. Le filtre À revoir rassemble ces phrases ; les réussites sans aide réduisent progressivement leur priorité.</p>
+    <p><strong>À revoir :</strong> marquez une phrase avec ☆ pour la retrouver. Les erreurs et les aides utilisées contribuent aussi à repérer les difficultés. Le filtre À revoir rassemble ces phrases ; les réussites sans aide réduisent progressivement leur priorité. L’option « RAZ des révisions » vide cette liste après confirmation, tout en conservant les autres statistiques.</p>
     <p>Le bouton 📊 à gauche de Phrase précédente ouvre les statistiques de session : exercices visités et réussis, réussites sans aide, vérifications incorrectes, indices et solutions consultées. Une nouvelle session commence à l’ouverture ou au rechargement de la page. Le bouton de remise à zéro de cette modale ne supprime pas votre progression enregistrée ni vos phrases à revoir.</p>
     <h3>3. Tables de kana et ordre des traits</h3>
     <p>Le bouton <strong>あ / ア · Table des kana</strong> ouvre une table depuis l’exercice. Dans cette table comme dans celle de l’atelier, un clic révèle la lecture, lance la prononciation lorsque celle-ci est disponible et ouvre un <strong>dessin statique avec les traits numérotés</strong>. Suivez les numéros pour écrire le caractère. Pour une combinaison comme きゃ, chaque caractère a son dessin.</p>
@@ -166,6 +168,15 @@
   <dialog id="document-dialog" aria-labelledby="document-title">
     <div class="document-heading"><h2 id="document-title"></h2><button id="document-close" autofocus>Fermer</button></div>
     <div id="document-content"></div>
+  </dialog>
+  <dialog id="review-reset-dialog" aria-labelledby="review-reset-title">
+    <div class="dialog-heading"><h2 id="review-reset-title">Remettre les révisions à zéro ?</h2></div>
+    <p><strong id="review-reset-count">0</strong> phrase(s) marquée(s) ou prioritaire(s) seront retirées de la liste « À revoir ».</p>
+    <p>Les réussites, erreurs, indices et solutions déjà comptabilisés seront conservés.</p>
+    <div class="confirm-actions">
+      <button id="review-reset-cancel" autofocus>Annuler</button>
+      <button id="review-reset-confirm" class="danger-action">Confirmer la RAZ</button>
+    </div>
   </dialog>
   <dialog id="stats-dialog" aria-labelledby="stats-title">
     <div class="dialog-heading"><h2 id="stats-title">Statistiques</h2><button id="stats-close" autofocus>Fermer</button></div>

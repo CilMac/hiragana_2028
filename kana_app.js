@@ -269,9 +269,29 @@
   $('hiragana').onclick = () => changeMode('hiragana'); $('katakana').onclick = () => changeMode('katakana');
   $('script-choice').onchange = () => changeMode($('script-choice').value);
   $('review-choice').onchange = () => {
+    if ($('review-choice').value === 'reset') {
+      $('review-choice').value = $('review-only').checked ? 'review' : 'all';
+      $('review-reset-count').textContent = String(Object.values(progress.entries).filter(needsReview).length);
+      $('review-reset-dialog').showModal();
+      return;
+    }
     $('review-only').checked = $('review-choice').value === 'review';
     applyFilters();
   };
+  $('review-reset-cancel').onclick = () => $('review-reset-dialog').close();
+  $('review-reset-confirm').onclick = () => {
+    for (const entry of Object.values(progress.entries)) {
+      entry.manual = false;
+      entry.difficulty = 0;
+    }
+    save();
+    $('review-only').checked = false;
+    $('review-choice').value = 'all';
+    $('review-reset-dialog').close();
+    applyFilters();
+    message('La liste « À revoir » a été remise à zéro.');
+  };
+  $('review-reset-dialog').addEventListener('close', () => $('review-choice').focus());
   for (const id of ['theme','level','review-only']) $(id).onchange = applyFilters;
   $('mark').onclick = () => { stat().manual = !stat().manual; save(); renderStats(); };
   function speak(text, report) {
