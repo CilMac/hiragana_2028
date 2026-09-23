@@ -16,6 +16,29 @@
   resourcesButton.onclick = () => resources.showModal();
   document.getElementById('resources-close').onclick = () => resources.close();
   resources.addEventListener('close', () => resourcesButton.focus());
+  const documentDialog = document.getElementById('document-dialog');
+  const documentContent = document.getElementById('document-content');
+  let documentTrigger;
+  for (const button of resources.querySelectorAll('[data-document]')) {
+    button.onclick = () => {
+      documentTrigger = button;
+      const title = button.textContent;
+      const source = button.dataset.document;
+      document.getElementById('document-title').textContent = title;
+      const preview = document.createElement(source.endsWith('.pdf') ? 'iframe' : 'img');
+      if (preview.tagName === 'IFRAME') preview.title = title;
+      else preview.alt = title;
+      preview.src = source;
+      documentContent.replaceChildren(preview);
+      documentDialog.showModal();
+      documentContent.scrollTop = 0;
+    };
+  }
+  document.getElementById('document-close').onclick = () => documentDialog.close();
+  documentDialog.addEventListener('close', () => {
+    documentContent.replaceChildren();
+    documentTrigger?.focus();
+  });
   let loaded = false;
   let phrasesScroll = 0;
   function resize() {
